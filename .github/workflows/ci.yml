@@ -20,7 +20,7 @@ jobs:
       - run: npm ci
 
       - name: Typecheck
-        run: npx tsc --noEmit --workspaces
+        run: npm run typecheck --workspaces --if-present
 
       - name: Lint
         run: npm run lint --workspaces --if-present

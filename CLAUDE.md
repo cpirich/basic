@@ -23,11 +23,18 @@ The evaluator is an async generator yielding I/O events. Host environments drive
 
 Project plans and design documents are stored in the `plans/` directory. Plan files must have meaningful, descriptive filenames (e.g., `machine-specific-format-filtering.md`, not auto-generated names). Commit plan files alongside the code they describe so we can look back later to see what was done.
 
-## Testing
+## Pre-commit Checks
 
-**IMPORTANT: Always run tests before committing changes.**
+**IMPORTANT: Always run all CI checks before committing and pushing changes.** These match what runs in the CI workflow (`.github/workflows/ci.yml`):
 
-If type checking or tests fail, fix the issues before committing. Do not skip or disable tests without a clear reason and TODO comment explaining why.
+```sh
+npm run typecheck --workspaces --if-present
+npm run lint --workspaces --if-present
+npm run build --workspaces --if-present
+npm test --workspaces --if-present
+```
+
+If any check fails, fix the issues before committing. Do not skip or disable tests without a clear reason and TODO comment explaining why.
 
 ## Git Commands
 

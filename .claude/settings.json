@@ -114,7 +114,10 @@
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__new_page",
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__take_screenshot",
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__get_console_message",
-      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__close_page"
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__close_page",
+      "Bash(node --version:*)",
+      "Bash(npm --version:*)",
+      "WebFetch(domain:docs.anthropic.com)"
     ]
   },
   "enabledPlugins": {

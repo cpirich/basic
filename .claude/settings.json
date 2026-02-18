@@ -117,7 +117,15 @@
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__close_page",
       "Bash(node --version:*)",
       "Bash(npm --version:*)",
-      "WebFetch(domain:docs.anthropic.com)"
+      "Bash(npm install:*)",
+      "Bash(git rm:*)",
+      "Bash(git pull:*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(npm run typecheck:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx tsx:*)",
+      "Bash(npm install --save-dev:*)",
+      "Bash(mkdir:*)"
     ]
   },
   "enabledPlugins": {

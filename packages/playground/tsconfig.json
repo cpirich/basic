@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "declaration": false,
+    "declarationMap": false,
+    "paths": {
+      "minibasic-lang": ["../lang/src/index.ts"]
+    }
+  },
+  "include": ["src"]
+}

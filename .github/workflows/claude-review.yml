@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run Claude Code review
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@2f8ba26a219c06cfb0f468eef8d97055fa814f97 # v1 - pinned to known-working SHA
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           track_progress: true

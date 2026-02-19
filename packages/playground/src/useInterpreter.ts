@@ -26,7 +26,12 @@ export function useInterpreter() {
       generatorRef.current.return(undefined as never);
       generatorRef.current = null;
     }
-    inputResolverRef.current = null;
+    // Resolve any pending input promise so the async loop can exit
+    // (the generatorRef guard check will detect cancellation)
+    if (inputResolverRef.current) {
+      inputResolverRef.current("");
+      inputResolverRef.current = null;
+    }
     setState(s => ({ ...s, running: false, waitingForInput: false, inputPrompt: "" }));
   }, []);
 
@@ -43,7 +48,7 @@ export function useInterpreter() {
     let program;
     try {
       program = compile(source);
-    } catch (e) {
+    } catch (e: unknown) {
       const message = e instanceof MiniBasicError ? e.message : String(e);
       setState({ output: [`ERROR: ${message}`], running: false, waitingForInput: false, inputPrompt: "" });
       return;

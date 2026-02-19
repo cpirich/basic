@@ -36,6 +36,18 @@ npm test --workspaces --if-present
 
 If any check fails, fix the issues before committing. Do not skip or disable tests without a clear reason and TODO comment explaining why.
 
+### Workspace Typecheck Ordering
+
+CI runs `typecheck` before `build`, so `dist/` output from upstream packages does not exist during typechecking. Any workspace package that depends on another must use a TypeScript `paths` mapping in its `tsconfig.json` to resolve types from source:
+
+```json
+"paths": {
+  "minibasic-lang": ["../lang/src/index.ts"]
+}
+```
+
+Without this, `tsc --noEmit` will fail with "Cannot find module" errors in CI. Always test typechecking with a clean state (`rm -rf packages/lang/dist`) before committing.
+
 ## Git Commands
 
 Run git commands without `-C` or absolute paths — the working directory is already the project root. Use plain `git status`, `git diff`, `git log`, etc. to match the allow list patterns (e.g., `git status:*`). Using `git -C /full/path` won't match and will trigger unnecessary permission prompts.

@@ -2,10 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "outDir": "dist",
-    "rootDir": "src",
     "declaration": false,
-    "declarationMap": false
+    "declarationMap": false,
+    "paths": {
+      "minibasic-lang": ["../lang/src/index.ts"]
+    }
   },
   "include": ["src"]
 }
